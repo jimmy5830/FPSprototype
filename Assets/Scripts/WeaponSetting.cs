@@ -8,6 +8,7 @@ public enum WeaponName {  AssaultRifle = 0 }
 public struct WeaponSetting 
 {
     public WeaponName weaponName;
+    public int damage;
     public int currentAmmo;
     public int maxAmmo;
     public float attackRate; // 공격 속도

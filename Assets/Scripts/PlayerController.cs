@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private KeyCode keyCodeReload = KeyCode.R; // 탄 재장전 키
 
+
     [Header("Audio Clips")]
     [SerializeField]
     private AudioClip audioClipWalk;                // 걷기 사운드
     [SerializeField]
     private AudioClip audioClipRun;                 // 달리기 사운드
+    
 
 
     private RotateToMouse rotateToMouse;            // 마우스 이동으로 카메라 회전
@@ -117,6 +119,16 @@ public class PlayerController : MonoBehaviour
         if ( Input.GetKeyDown(keyCodeReload) )
         {
             weapon.StartReload();
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        bool isDie = status.DecreaseHP(damage);
+
+        if ( isDie == true )
+        {
+            Debug.Log("GameOver");
         }
     }
 }
