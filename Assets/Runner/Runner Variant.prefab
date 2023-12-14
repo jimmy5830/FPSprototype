@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6219110089959274794, guid: 634f30f263d94a3468942c2685640399, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6219110089959274834, guid: 634f30f263d94a3468942c2685640399, type: 3}
       propertyPath: m_Model
       value: 
@@ -63,9 +67,50 @@ PrefabInstance:
       propertyPath: goal
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6219110089959274847, guid: 634f30f263d94a3468942c2685640399, type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6525679013452055347, guid: 634f30f263d94a3468942c2685640399, type: 3}
       propertyPath: m_Name
+      value: Runner Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525679013452055347, guid: 634f30f263d94a3468942c2685640399, type: 3}
+      propertyPath: m_TagString
       value: Runner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634f30f263d94a3468942c2685640399, type: 3}
+--- !u!1 &8482989610539254804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6525679013452055347, guid: 634f30f263d94a3468942c2685640399, type: 3}
+  m_PrefabInstance: {fileID: 3402043354015172391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6664344495866912343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482989610539254804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: WallSensor
+  m_DetectableTags:
+  - Wall
+  m_RaysPerDirection: 4
+  m_MaxRayDegrees: 180
+  m_SphereCastRadius: 0.15
+  m_RayLength: 10
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ObservationStacks: 1
+  m_AlternatingRayOrder: 1
+  rayHitColor: {r: 0, g: 1, b: 0.076420784, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0.5
+  m_EndVerticalOffset: 0.5

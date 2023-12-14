@@ -19,6 +19,7 @@ TagManager:
   - Cover
   - CheckPoint
   - DeadZone
+  - Runner
   layers:
   - Default
   - TransparentFX

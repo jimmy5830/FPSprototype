@@ -86,6 +86,27 @@ public class Controller : Agent
         sensor.AddObservation(gameObject.transform.position);
     }
 
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        var continuousActionsOut = actionsOut.ContinuousActions;
+        if (Input.GetKey(KeyCode.D))
+        {
+            continuousActionsOut[0] = 0.25f;
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            continuousActionsOut[0] = 0f;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            continuousActionsOut[0] = -0.25f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            continuousActionsOut[0] = 0.5f;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == goal)
