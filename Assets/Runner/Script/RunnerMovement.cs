@@ -85,5 +85,7 @@ public class RunnerMovement : MonoBehaviour
         {
             anim.SetBool("IsRunning", false);
         }
+
+        Debug.Log("Direction : " + transform.forward);
     }
 }
