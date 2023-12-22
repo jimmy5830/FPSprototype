@@ -10,7 +10,7 @@ public class RunnerMovement : MonoBehaviour
     private float zAxis;
     private float ySpeed;
     private bool isJumping;
-    private bool isGrounded;
+    //private bool isGrounded;
     private bool isCrouched;
 
     private Animator anim;
@@ -45,7 +45,7 @@ public class RunnerMovement : MonoBehaviour
         {
             ySpeed = -2.0f;
             anim.SetBool("IsGrounded", true);
-            isGrounded = true;
+            //isGrounded = true;
             anim.SetBool("IsJumping", false);
             isJumping = false;
             anim.SetBool("IsFalling", false);
@@ -61,7 +61,7 @@ public class RunnerMovement : MonoBehaviour
         else
         {
             anim.SetBool("IsGrounded", false);
-            isGrounded = false;
+            //isGrounded = false;
              
             if ((isJumping && ySpeed < 0) || ySpeed < -2.5f)
             {

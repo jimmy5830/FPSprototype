@@ -11,11 +11,13 @@ public class Controller : Agent
     public float speed;
     private float ySpeed;
     public GameObject goal;
+    private bool bDetected;
     //public GameObject checkPoints;
     private Vector3 goalPos;
     //private float dist;
     private string sceneName;
     private int checkCnt;
+    private int hp;
 
     private Animator anim;
     private CharacterController controller;
@@ -23,7 +25,7 @@ public class Controller : Agent
     private void Awake()
     {
         base.Awake();
-        sceneName = "RunnerEnv";
+        sceneName = "Env3";
         goalPos = goal.transform.position;
 
     }
@@ -36,12 +38,13 @@ public class Controller : Agent
         anim.SetBool("IsRunning", true);
         ySpeed = 0f;
         checkCnt = 0;
+        hp = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (StepCount >= MaxStep - 1000)
+        if (StepCount >= MaxStep - 100)
         {
             EndEpisode();
             SceneManager.LoadScene(sceneName);
@@ -62,6 +65,7 @@ public class Controller : Agent
         if (transform.position.y <= -3f)
         {
             //SetReward(-50.0f - (transform.position - goalPos).magnitude + 3.0f * checkCnt);
+            Debug.Log("Runner has fallen off.");
             SetReward(-50.0f + 3.0f * checkCnt);
             EndEpisode();
             SceneManager.LoadScene(sceneName);
@@ -84,6 +88,8 @@ public class Controller : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(gameObject.transform.position);
+        sensor.AddObservation(hp);
+        sensor.AddObservation(bDetected);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -119,9 +125,24 @@ public class Controller : Agent
         if (collision.gameObject.CompareTag("CheckPoint"))
         {
             Destroy(collision.gameObject);
-            AddReward(1.0f);
+            AddReward(3.0f);
             checkCnt = checkCnt + 1;
             //Debug.Log("Touch " + checkCnt + " CheckPoint");
+        }
+    }
+
+    public void SetDetection(bool detect) { bDetected = detect; }
+
+    public void getShot()
+    {
+        hp -= 1;
+        AddReward(-2.0f);
+        if (hp <= 0)
+        {
+            Debug.Log("Runner is Killed.");
+            AddReward(-10.0f);
+            EndEpisode();
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

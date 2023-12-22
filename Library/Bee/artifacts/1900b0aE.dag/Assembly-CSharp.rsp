@@ -403,6 +403,7 @@
 "Assets/ExternalAssets/Low Poly FPS Pack - Free (Sample)/Components/Scripts/Misc/LookAtCamera.cs"
 "Assets/ExternalAssets/Low Poly FPS Pack - Free (Sample)/Components/Scripts/Weapon_Scripts/AutomaticGunScriptLPFP.cs"
 "Assets/ExternalAssets/Low Poly FPS Pack - Free (Sample)/Components/Scripts/Weapon_Scripts/HandgunScriptLPFP.cs"
+"Assets/Prefabs/TempShooter/BulletMove.cs"
 "Assets/Prefabs/TempShooter/SimpleShooter.cs"
 "Assets/Runner/Script/Controller.cs"
 "Assets/Runner/Script/RunnerMovement.cs"
